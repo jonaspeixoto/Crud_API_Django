@@ -21,6 +21,7 @@ class Vagas(models.Model):
     descricao = models.TextField(null=False, blank=False)
     salario = models.TextField(null=True, blank=False)
     local = models.CharField(max_length=20, null=False, blank=False)
+    quantidade = models.IntegerField(null=False, blank=False)
     contato = models.EmailField(null=False, blank=False)
     tipo_contratacao = models.CharField(max_length=3, null=False, blank=False, choices=CONTRATACAO_CHOICE)
     tecnologia = models.ManyToManyField(Tecnologia)
