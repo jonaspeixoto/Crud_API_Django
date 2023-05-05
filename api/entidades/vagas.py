@@ -1,5 +1,5 @@
 
-class vagas():
+class Vagas():
     def __init__(self, titulo, descricao, salario, local, quantidade, contato, tipo_contratacao,tecnologia ):
         self.__titulo = titulo
         self.__descricao = descricao
