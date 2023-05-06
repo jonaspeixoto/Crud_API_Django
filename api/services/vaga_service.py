@@ -20,7 +20,7 @@ def listar_vaga_id(id):
     except Vagas.DoesNotExist:
         raise Http404
     
-def editar_tecnologia(vaga_antiga, vaga_nova):
+def editar_vaga(vaga_antiga, vaga_nova):
     vaga_antiga.titulo = vaga_nova.titulo
     vaga_antiga.descricao = vaga_nova.descricao
     vaga_antiga.salario = vaga_nova.salario
@@ -31,3 +31,5 @@ def editar_tecnologia(vaga_antiga, vaga_nova):
     vaga_antiga.tecnologia.set(vaga_nova.tecnologia)
     vaga_antiga.save(force_update=True)
 
+def remover_vaga(vaga):
+    vaga.delete()

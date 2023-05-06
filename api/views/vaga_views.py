@@ -51,9 +51,12 @@ class VagaDetalhes(APIView):
                                     contato=contato, tipo_contratacao=tipo_contratacao, tecnologia=tecnologia)
             
             print(vaga_nova.titulo)
-            vaga_service.editar_tecnologia(vaga_antiga, vaga_nova)
+            vaga_service.editar_vaga(vaga_antiga, vaga_nova)
             
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
-
+    def delete(self, request, id, format=None):
+        vaga = vaga_service.listar_vaga_id(id)
+        vaga_service.remover_vaga(vaga)
+        return Response(status=status.HTTP_204_NO_CONTENT)
